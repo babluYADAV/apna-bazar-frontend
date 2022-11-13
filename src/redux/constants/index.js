@@ -1,2 +1,9 @@
-export const ADD_ITEM = "ADD_ITEM";
-export const DELETE_ITEM = "DELETE_ITEM";
+const actionConstants = {
+
+    LOGIN_START:"Login_start",
+    LOGIN_SUCCESS:"Login_success",
+    LOGIN_FAILED:"Login_failed"
+
+};
+
+export default actionConstants;
