@@ -14,7 +14,7 @@ function Routing() {
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
       </Routes>
-      <Footer title="Apna Bazar" description="Shopping App" />
+      <Footer />
     </Router>
   );
 }
