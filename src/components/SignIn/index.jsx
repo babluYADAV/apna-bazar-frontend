@@ -13,18 +13,25 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { loginStart } from "../../redux/actions/signInAction";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const theme = createTheme();
 
 export default function SignIn() {
   const dispatch = useDispatch();
-  React.useEffect(() => {
-    dispatch(loginStart());
-  }, [dispatch]);
+
+  const signin = useSelector((state) => state.signIn);
+  console.log("signin", signin);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    dispatch(
+      loginStart({
+        email: data.get("email"),
+        password: data.get("password"),
+      })
+    );
+
     console.log({
       email: data.get("email"),
       password: data.get("password"),

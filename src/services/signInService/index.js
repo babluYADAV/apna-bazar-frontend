@@ -1,9 +1,9 @@
 import axios from "axios";
 import apiEndPoint from "../../constants";
 
-const signIn = () => {
+const signIn = (request) => {
   return axios
-    .get(apiEndPoint.LOGIN_ULR)
+    .post(apiEndPoint.LOGIN_URL, request.user)
     .then((response) => ({ response }))
     .catch((error) => ({ error }));
 };

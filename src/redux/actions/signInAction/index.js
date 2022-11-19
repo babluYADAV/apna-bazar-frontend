@@ -1,7 +1,7 @@
 import actionConstants from "../../constants";
 
-const loginStart = () => {
-  return { type: actionConstants.LOGIN_START };
+const loginStart = (data) => {
+  return { type: actionConstants.LOGIN_START, user: data };
 };
 const loginSuccess = (data) => {
   return { type: actionConstants.LOGIN_SUCCESS, payload: data };

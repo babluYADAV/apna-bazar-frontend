@@ -1,12 +1,12 @@
-import { call, put, takeEvery } from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import signIn from "../../../services/signInService";
 import { loginSuccess, loginFailure } from "../../actions/signInAction";
 import actionConstants from "../../constants";
 
-function* signInSaga() {
-  const { response, error } = yield call(signIn);
+function* signInSaga(payload) {
+  const { response, error } = yield call(signIn, payload);
   if (response) {
-    const data = yield response.json();
+    const data = yield response.data;
     yield put(loginSuccess(data));
   } else {
     console.log("error: new", error.message);
@@ -15,6 +15,6 @@ function* signInSaga() {
 }
 
 function* watchSignInSaga() {
-  yield takeEvery(actionConstants.LOGIN_START, signInSaga);
+  yield takeLatest(actionConstants.LOGIN_START, signInSaga);
 }
 export default watchSignInSaga;
