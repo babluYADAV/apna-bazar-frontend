@@ -5,13 +5,20 @@ import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
 
 function Routing() {
+  var user = JSON.parse(localStorage.getItem("user"));
   return (
     <Router>
-      <Header />
+      {user?.user?.data?.token && <Header  user={user?.user?.data}/>}
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/signIn" element={<SignIn />} />
-        <Route path="/signUp" element={<SignUp />} />
+
+        {!user?.user?.data?.token && (
+          <Route path="/signIn" element={<SignIn />} />
+        )}
+        {!user?.user?.data?.token && (
+          <Route path="/signUp" element={<SignUp />} />
+        )}
+        <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </Router>
   );

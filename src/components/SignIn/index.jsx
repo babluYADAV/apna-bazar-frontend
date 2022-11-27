@@ -19,6 +19,7 @@ const SignIn = () => {
     dispatch(loginStart(user));
     console.log("signin", signin);
     if (signin?.user?.data?.token) {
+      localStorage.setItem("user", JSON.stringify(signin));
       toast("You have loggedIn successfully");
       navigate("/");
     } else {
@@ -58,7 +59,7 @@ const SignIn = () => {
                           id="email"
                           className="form-control"
                           placeholder="Enter email"
-                          required="true"
+                          required={true}
                         />
                       </div>
 

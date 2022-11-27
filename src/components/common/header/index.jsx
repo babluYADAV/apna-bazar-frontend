@@ -1,6 +1,6 @@
 import * as React from "react";
-
-function Header(props) {
+import { baseUrl } from "../../../constants";
+function Header({ user }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-danger p-3 mb-8 ">
       <div className="container-fluid">
@@ -56,10 +56,20 @@ function Header(props) {
               height: "44px",
               width: "44px",
               borderRadius: "22px",
-              border: "2px solid black",
-              cursor: "pointer",
             }}
-          ></li>
+          >
+            <img
+              src={`${baseUrl}/${user?.image}`}
+              style={{
+                height: "44px",
+                width: "44px",
+                borderRadius: "22px",
+                border: "2px solid black",
+                cursor: "pointer",
+              }}
+              alt="logo"
+            />
+          </li>
           <li className="nav-item">
             <i
               className="fa"
