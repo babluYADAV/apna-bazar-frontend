@@ -50,7 +50,7 @@ export default function SignUp() {
                     </div>
 
                     <form>
-                      <p>Please login to your account</p>
+                      <p>Please create your account</p>
                       <div className="form-outline mb-4">
                         <input
                           type="text"
